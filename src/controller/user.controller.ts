@@ -24,9 +24,12 @@ export class UserController {
 
   @Post('login')
   async login(@Body() credentials: { email: string; password: string }) {
+    if(!credentials.email || !credentials.password){
+      return ('please provide email id and password to registed' );
+    }
     const user = await this.userService.findByEmail(credentials.email);
     if (!user) {
-      return('User not found');
+      return('User not  registered');
     }
     const passwordMatch = await this.userService.comparePasswords(
       credentials.password,
@@ -43,10 +46,13 @@ export class UserController {
   
   @Post('logout')
   async logout(@Body() credentials: { email: string; password: string }) {
+    if(!credentials.email || !credentials.password){
+      return ('please provide email id and password to registed' );
+    }
     const user = await this.userService.findByEmail(credentials.email);
     console.log(user)
     if (!user) {
-      return('User not found');
+      return('User not registered');
     }
 
     const passwordMatch = await this.userService.comparePasswords(
