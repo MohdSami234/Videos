@@ -13,8 +13,7 @@ export class WatchLaterController {
     console.log(req.user)
     const userId = req.user.sub;
     console.log(userId)
-    await this.watchLaterService.addToWatchLater(userId, videoId);
-    return ('video added to your watch Later list succesfully')
+    return this.watchLaterService.addToWatchLater(userId, videoId);
   }
 
   @Post()
@@ -30,8 +29,8 @@ export class WatchLaterController {
   @Delete(':videoId')
   async removeFromWatchLater(@Request() req, @Param('videoId') videoId: number) {
     const userId = req.user.sub;
-    await this.watchLaterService.removeFromWatchLater(userId, videoId);
-    return ('video deleted successfully from your watchLater List')
+    return await this.watchLaterService.removeFromWatchLater(userId, videoId);
+   
   }
 }
 

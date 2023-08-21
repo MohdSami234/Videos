@@ -39,14 +39,16 @@ export class WatchLaterService {
     return watchLaterEntries.map(entry => entry.video);
   }
 
-  async removeFromWatchLater(userId: number, videoId: number): Promise<void> {
+  async removeFromWatchLater(userId: number, videoId: number): Promise<string> {
     const watchLaterEntry = await this.watchLaterRepository.findOne({
       where: { user: { id: userId }, video: { id: videoId } },
     });
   
     if (watchLaterEntry) {
       await this.watchLaterRepository.remove(watchLaterEntry);
+      return ('Video deleted from your Watch Later')
     }
+    return ('Video Not in Your Watch Later List')
   }
   
 }

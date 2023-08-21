@@ -10,6 +10,9 @@ export class VideoController {
     @Query('page') page,
     @Query('limit') limit,
   ) {
+    if(!page || !limit){
+      return ('please give page and limit param')
+    }
     const videoList = await this.videoService.getAllVideos(page, limit);
     if(videoList.length===0){
       return ('Videos Not Found')
