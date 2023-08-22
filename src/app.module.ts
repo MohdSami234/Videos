@@ -16,13 +16,15 @@ import { VideoModule } from './module/video.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres', 
-      host: 'dpg-cji7kfvjbvhs73ahbtig-a', 
+      host: 'dpg-cjier9r37aks7389ml4g-a.oregon-postgres.render.com', 
       port: 5432, 
-      username: 'video_eswm_user',
-      password: 'rZUVGVxUNH2bEF3yX64IawYLBxK2nEjI',
-      database: 'video_eswm',
+      username: 'sami',
+      password: 'FWz4IeLwf0LeJKr88Kuk68pTcjxVre3H',
+      database: 'videos_uayk',
       entities: [User, WatchLater, Video], 
       synchronize: true, 
+      ssl: true,
+
     }),
     UserModule,
     WatchLaterModule,
