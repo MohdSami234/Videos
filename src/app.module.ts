@@ -16,10 +16,10 @@ import { VideoModule } from './module/video.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres', 
-      host: 'localhost', 
+      host: 'dpg-cji7kfvjbvhs73ahbtig-a', 
       port: 5432, 
-      username: 'postgres',
-      password: 'Sami@1999',
+      username: 'video_eswm_user',
+      password: 'rZUVGVxUNH2bEF3yX64IawYLBxK2nEjI',
       database: 'youtube',
       entities: [User, WatchLater, Video], 
       synchronize: true, 
