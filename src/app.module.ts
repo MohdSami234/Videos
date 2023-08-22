@@ -20,7 +20,7 @@ import { VideoModule } from './module/video.module';
       port: 5432, 
       username: 'video_eswm_user',
       password: 'rZUVGVxUNH2bEF3yX64IawYLBxK2nEjI',
-      database: 'youtube',
+      database: 'video_eswm',
       entities: [User, WatchLater, Video], 
       synchronize: true, 
     }),
